@@ -64,6 +64,6 @@ if img_path and os.path.exists(img_path):
 st.markdown("""
 <hr style="margin-top: 50px; border-top: 1px solid #444;" />
 <div style='text-align: center; color: gray; font-size: small;'>
-    🚧 Проект для Capstone 2025 | Сделано с ❤️ студенткой Robotics Engineering
+    🚧 DS Capstone Project 2025 | Сделано с ❤️ студенткой Арай Жайсанбек
 </div>
 """, unsafe_allow_html=True)
