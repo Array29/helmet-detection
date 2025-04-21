@@ -8,11 +8,18 @@ st.title("🦺 Детекция каски с помощью YOLOv8")
 
 @st.cache_resource
 def load_model():
-    return YOLO("best.pt")
+    try:
+        model = YOLO("best.pt")
+        return model
+    except Exception as e:
+        st.error(f"Не удалось загрузить модель: {e}")
+        return None
 
 model = load_model()
 
 source = st.radio("Выберите источник изображения:", ["Загрузить файл", "Сделать фото с камеры"])
+
+img_path = None
 
 if source == "Загрузить файл":
     uploaded_file = st.file_uploader("Загрузите изображение", type=["jpg", "jpeg", "png"])
@@ -30,8 +37,11 @@ elif source == "Сделать фото с камеры":
         img_path = "temp.jpg"
         img.save(img_path)
 
-if ('img_path' in locals()) and os.path.exists(img_path):
+if img_path and model:
     with st.spinner("Распознаём..."):
-        results = model(img_path)
-        res_plotted = results[0].plot()
-        st.image(res_plotted, caption='Результат детекции', use_column_width=True)
+        try:
+            results = model(img_path)
+            res_plotted = results[0].plot()
+            st.image(res_plotted, caption='Результат детекции', use_column_width=True)
+        except Exception as e:
+            st.error(f"Ошибка при инференсе: {e}")
