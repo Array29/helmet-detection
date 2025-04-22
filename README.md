@@ -63,8 +63,7 @@
   - Масштабирование (`scale`)
   - Смещение по оттенку/насыщенности/яркости (`HSV shift`)
   - Прочие встроенные аугментации Ultralytics YOLOv8
-```markdown
-```python
+
 augmentation_params = {
     "degrees": 10,
     "translate": 0.2,
