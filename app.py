@@ -12,7 +12,7 @@ st.set_page_config(page_title="Проверка каски", page_icon="🦺")
 st.title("🛡️ Проверка наличия каски перед входом на производственный участок")
 
 
-@st.cache_resource
+#@st.cache_resource
 def load_model():
     return YOLO("best.pt")  
 
