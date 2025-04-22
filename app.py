@@ -30,7 +30,7 @@ if source == "📤 Загрузить файл":
     uploaded_file = st.file_uploader("Выберите изображение", type=["jpg", "jpeg", "png"])
     if uploaded_file:
         img = Image.open(uploaded_file)
-        st.image(img, caption="Загруженное изображение", use_column_width=True)
+        st.image(img, caption="Загруженное изображение", use_container_width=True)
         img_path = "temp.jpg"
         img.save(img_path)
 
@@ -39,7 +39,7 @@ elif source == "📸 Сделать фото с камеры":
     photo = st.camera_input("Сделайте фото")
     if photo:
         img = Image.open(photo)
-        st.image(img, caption="Сделанное фото", use_column_width=True)
+        st.image(img, caption="Сделанное фото", use_container_width=True)
         img_path = "temp.jpg"
         img.save(img_path)
 
@@ -63,9 +63,9 @@ if img_path and os.path.exists(img_path):
             st.markdown("### 🔎 Результаты проверки")
             col1, col2 = st.columns(2)
             with col1:
-                st.image(img, caption="Исходное изображение", use_column_width=True)
+                st.image(img, caption="Исходное изображение", use_container_width=True)
             with col2:
-                st.image(res_plotted_rgb, caption="Результат детекции", use_column_width=True)
+                st.image(res_plotted_rgb, caption="Результат детекции", use_container_width=True)
 
             st.markdown("---")
             if has_helmet:
@@ -76,6 +76,6 @@ if img_path and os.path.exists(img_path):
 st.markdown("""
 <hr style="margin-top: 50px; border-top: 1px solid #444;" />
 <div style='text-align: center; color: gray; font-size: small;'>
-    🦺 Capstone Project | Проверка каски перед началом работы | by Арай Жайсанбек
+    🦺 DS Capstone Project 2025| Проверка каски перед началом работы | by Арай Жайсанбек
 </div>
 """, unsafe_allow_html=True)
