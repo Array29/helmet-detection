@@ -63,19 +63,22 @@
   - Масштабирование (`scale`)
   - Смещение по оттенку/насыщенности/яркости (`HSV shift`)
   - Прочие встроенные аугментации Ultralytics YOLOv8
+```markdown
 ```python
-    degrees: 10
-    translate: 0.2
-    scale: 0.3
-    shear: 2
-    perspective: 0.0005
-    flipud: 0.3
-    fliplr: 0.5
-    mosaic: 1
-    mixup: 0.1
-    hsv_h: 0.015
-    hsv_s: 0.7
-    hsv_v: 0.4
+augmentation_params = {
+    "degrees": 10,
+    "translate": 0.2,
+    "scale": 0.3,
+    "shear": 2,
+    "perspective": 0.0005,
+    "flipud": 0.3,
+    "fliplr": 0.5,
+    "mosaic": 1,
+    "mixup": 0.1,
+    "hsv_h": 0.015,
+    "hsv_s": 0.7,
+    "hsv_v": 0.4
+} 
 
 ## 📊 Метрики модели
 
